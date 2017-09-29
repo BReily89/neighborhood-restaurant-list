@@ -23,3 +23,30 @@ var BestOf = Schema.BestOfModel
 RestaurantModel.remove({}, function (err) {
     console.log(err);
 });
+
+// Restaurants and Their Dishes
+const Venkmans = new RestaurantModel({ name: 'Venkmans', dress :'casual'})
+const StapleHouse = new RestaurantModel({ name: 'StapleHouse', dress: 'upscale'})
+const MfSushi = new RestaurantModel({ name: 'MfSushi', dress: 'casual'})
+
+const BestOfVenkmans = new BestOfModel({ name:'', drink:''})
+const BestOfStapleHouse = new BestOfModel({name:'', drink:'Ivy League'})
+const BestOfMfSushi = new BestOfModel({name:'', drink:'' })
+
+//assigning best of to restaurant
+const restaurant =[Venkmans, StapleHouse, MfSushi]
+const BestOf = [BestOfVenkmans, BestOfStapleHouse, BestOfMfSushi]
+
+restaurants.forEach((restaurant) => {
+    restaurant.BestOf = BestOf
+
+        restuarant.save()
+        .then((restaurant) => {
+            console.log(`${restaurant.name} saved!`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
+
