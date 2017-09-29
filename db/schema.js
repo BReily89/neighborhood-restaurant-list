@@ -8,6 +8,7 @@ const RestaurtantSchema = new Schema({
     name: {
         type: String,
         required: true,
+        food: String,//link to restaurant website
         dress: String,
     },
     price: {
@@ -15,3 +16,6 @@ const RestaurtantSchema = new Schema({
         required: true
     }
 })
+
+module.exports = {
+    
