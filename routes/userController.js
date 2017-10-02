@@ -79,6 +79,17 @@ router.get('/:userId' , (request, response) => {
 })
 
 //DELETE
+router.get('/:userId/delete', (request, response) => {
+  const userId = request.params.userId
+
+  userModel.findByIdAndRemove(userId)
+  .then(() => {
+    response.redirect('/users')
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+})
 
 
 /* GET users listing. */
@@ -86,4 +97,4 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-module.exports = router;
+module.exports = router\
