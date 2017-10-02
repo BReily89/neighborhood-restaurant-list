@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Schema = require('../db/schema.js');
-const RestaurantModel = Schema.restaurantModel;
+const RestaurantModel = Schema.RestaurantModel;
 
 // Route to Index
 router.get('/', (request, response) => {
@@ -10,10 +10,10 @@ router.get('/', (request, response) => {
 
     // Find all the restaurants in my database
     RestaurantModel.find({})
-        .then((restaurants) => {
+        .then((Restaurants) => {
 
-            response.render('restaurant/index', {
-                restaurants: restaurants
+            response.render('Restaurant/index', {
+                Restaurant: Restaurant
             })
         })
         .catch((error) => {
@@ -23,22 +23,35 @@ router.get('/', (request, response) => {
 
 //New Restaurant route
 router.get('/new', (request, response) => {
-            response.render('restaurants/new')
+            response.render('Restaurants/new')
         })
 
 //Create a route
 router.post('/', (request, response) => {
 
     //Grab new company info as a JS object
-    const newREstaurant = require.body
+    const newRestaurant = require.body
 
 //CREATE/ save new restaurant using Restaurant Model
     RestaurantModel.create(newRestaurant)
         .then(() => {
-    response.redirect('/restaurants')
+    response.redirect('/Restaurants')
         })
         .catch((error) =>{
             console.log(error)
         })
 
+ })
+
+ // Edit Route
+router.get('/RestaurantId/edit', (request, response) => {
+
+        const RestaurantId = request.params.RestaurantId
+
+        RestaurantModel.findById(RestaurantId)
+        .then((Restaurant) => {
+            response.render('Restaurants/edit', {
+                Restaurant: Restaurant
+            })
+        })
         })

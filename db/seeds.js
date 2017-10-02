@@ -28,9 +28,9 @@ const Venkmans = new RestaurantModel({ name: 'Venkmans', dress :'casual'})
 const StapleHouse = new RestaurantModel({ name: 'StapleHouse', dress: 'upscale'})
 const MfSushi = new RestaurantModel({ name: 'MfSushi', dress: 'casual'})
 
-const BestOfVenkmans = new BestOfModel({ name:'', drink:''})
-const BestOfStapleHouse = new BestOfModel({name:'', drink:'Ivy League'})
-const BestOfMfSushi = new BestOfModel({name:'', drink:'' })
+const BestOfVenkmans = new BestOfModel({ name:'Burrata', price:'', drink:'Beer slushie shandy',price:''})
+const BestOfStapleHouse = new BestOfModel({name:'Chicken Liver Tart',price:'',  drink:'Ivy League', price:''})
+const BestOfMfSushi = new BestOfModel({name:'Avocado Balls',price:'', drink:'MF Manhattan', price:'' })
 
 //assigning best of to restaurant
 const Restaurant =[Venkmans, StapleHouse, MfSushi]
