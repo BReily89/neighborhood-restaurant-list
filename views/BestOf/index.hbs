@@ -1,15 +1,18 @@
 <div>
-    <h1></h1>
+    <h1>{{company.name}}'s Snowboards</h1>
 
-    <h3>Best Dishes and Drinks:</h3>
     <div>
-        <a href="/BestOf/new">Add New Dish/Drink</a>
+        <a href="/companies/{{company._id}}/snowboards/new">Create a New Snowboard</a>
     </div>
-    {{#each BestOf}}
+
+    <div>
+        <a href="/companies">Back to Companies</a>
+    </div>
+    
+    {{#each company.snowboards}}
         <div>
-            {{this.BestOf}} - {{this.name}}
-            <a href="/BestOf/{{this._id}}">{{this.name}} BestOf</a>
-            <a href="/BestOf/{{this._id}}/BestOf">{{this.name}}'s Restaurants</a>
+            {{this.name}} - {{this.price}}
+            <a href="/companies/{{../company._id}}/snowboards/{{this._id}}">View</a>
         </div>
     {{/each}}
 </div>

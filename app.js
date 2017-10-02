@@ -45,7 +45,7 @@ var indexController = require('./routes/indexController.js');
 app.use('/', indexController);
 
 const RestaurantController = require('./routes/RestaurantController.js');
-app.use('/Restaurant', RestaurantController)
+app.use('/Restaurants', RestaurantController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -25,7 +25,7 @@ router.get('/', (request, response) => {
 
 //New Restaurant route
 router.get('/new', (request, response) => {
-            response.render('Restaurant/new')
+            response.render('Restaurants/new')
         })
 
 //Create a route
