@@ -8,10 +8,6 @@ db.on('error', function (err) {
     console.log(err);
 });
 
-RestaurantModel.remove({}, function (error) {
-    console.log(error);
-})
-
 
 db.once('open' ,function () {
     console.log('Connected to MongoDB!');
@@ -27,6 +23,11 @@ var BestOfModel = Schema.BestOfModel
 //});
 
 // Restaurants and Their Dishes
+
+
+RestaurantModel.remove({}, function (err) {
+    console.log(err);
+})
 const JohnDoe = new UserModel({name:'JohnDoe', email:'@email'})
 const Venkmans = new RestaurantModel({ name: 'Venkmans', dress :'casual', neighborhood:''})
 const StapleHouse = new RestaurantModel({ name: 'StapleHouse', dress: 'upscale', neighborhood:''})

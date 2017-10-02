@@ -30,10 +30,14 @@ router.post('/', (request, response) => {
 
   const newUser = request.body
 
-  
-
+  UserModel.create(newUser)
+  .then(() => {
+    response.redirect('/restaurants') 
+  })
+  .catch((error) => {
+    console.log(butt)
+  })
 })
-
 
 //EDIT
 router.get('/:userId/edit',(request, response) => {
@@ -97,4 +101,4 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-module.exports = router\
+module.exports = router;
