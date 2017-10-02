@@ -15,14 +15,56 @@ const methodOverride = require('method-override')
  })
 
 //NEW
+router.get('/new', (request, response) => {
+  const userId = request.params.userId
+
+  response.render('users/new', {
+    userId: userId
+  })
+})
 
 //CREATE
+router.post('/', (request, response) => {
+
+  const userId = request.params.userId
+
+  const newUser = request.body
+
+  
+
+})
+
 
 //EDIT
+router.get('/:userId/edit',(request, response) => {
+  const userId = request.params.userId
+
+  Userodel.findById(userId)
+  .then((user) => {
+    response.render('user/edit', {
+      user: user
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+})
 
 //UPDATE
+router.put('/:userId', (request, response) => {
+  const userId = request.params.userId
+  
+  UserModel.findByIdAndUpdate(userId , updatedUser, {new : true})
+  .then(() => {
+    response.redirect(`/users/${userId}`)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+})
 
 //SHOW
+router.get('/:userId' , (request, ))
 
 //DELETE
 
