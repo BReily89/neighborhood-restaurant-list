@@ -27,6 +27,10 @@ var app = express();
 
 app.use(methodOverride('_method'))
 
+app.get('/', (req, res) => {
+  res.redirect('/companies')
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,8 +48,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 var indexController = require('./routes/indexController.js');
 app.use('/', indexController);
 
-const RestaurantController = require('./routes/RestaurantController.js');
-app.use('/Restaurants', RestaurantController)
+const RestaurantController = require('./routes/restaurantController.js');
+app.use('/restaurants', RestaurantController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

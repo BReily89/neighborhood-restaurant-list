@@ -35,7 +35,7 @@ router.post('/', (request, response) => {
     const newRestaurant = require.body
 
 //CREATE/ save new restaurant using Restaurant Model
-    RestaurantModel.create(newRestaurant)
+    restaurantModel.create(newRestaurant)
         .then(() => {
     response.redirect('/restaurant')
         })
@@ -46,14 +46,14 @@ router.post('/', (request, response) => {
  })
 
  // Edit Route
-router.get('/RestaurantId/edit', (request, response) => {
+router.get('/restaurantId/edit', (request, response) => {
 
-        const RestaurantId = request.params.RestaurantId
+        const restaurantId = request.params.RestaurantId
 
-        RestaurantModel.findById(RestaurantId)
-        .then((Restaurant) => {
-            response.render('Restaurant/edit', {
-                Restaurant: Restaurant
+        restaurantModel.findById(RestaurantId)
+        .then((restaurant) => {
+            response.render('restaurant/edit', {
+                restaurant: restaurant
             })
         })
         .catch((error) => {
