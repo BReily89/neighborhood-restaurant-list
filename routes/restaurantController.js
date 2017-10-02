@@ -7,13 +7,15 @@ const RestaurantModel = Schema.RestaurantModel;
 // Route to Index
 router.get('/', (request, response) => {
 
+    const RestaurantId =request.params.RestaurantId
+
 
     // Find all the restaurants in my database
     RestaurantModel.find({})
         .then((Restaurants) => {
 
-            response.render('Restaurant/index', {
-                Restaurant: Restaurant
+            response.render('Restaurants/index', {
+                Restaurants: Restaurants
             })
         })
         .catch((error) => {
@@ -23,7 +25,7 @@ router.get('/', (request, response) => {
 
 //New Restaurant route
 router.get('/new', (request, response) => {
-            response.render('Restaurants/new')
+            response.render('Restaurant/new')
         })
 
 //Create a route
@@ -35,7 +37,7 @@ router.post('/', (request, response) => {
 //CREATE/ save new restaurant using Restaurant Model
     RestaurantModel.create(newRestaurant)
         .then(() => {
-    response.redirect('/Restaurants')
+    response.redirect('/Restaurant')
         })
         .catch((error) =>{
             console.log(error)
@@ -50,8 +52,13 @@ router.get('/RestaurantId/edit', (request, response) => {
 
         RestaurantModel.findById(RestaurantId)
         .then((Restaurant) => {
-            response.render('Restaurants/edit', {
+            response.render('Restaurant/edit', {
                 Restaurant: Restaurant
             })
         })
+        .catch((error) => {
+            console.log(error)
         })
+        })
+
+module.exports = router;

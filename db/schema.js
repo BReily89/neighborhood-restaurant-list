@@ -11,6 +11,7 @@ const RestaurantSchema = new Schema({
         required: true,
         food: String,//link to restaurant website
         dress: String,
+        neighborhood: String,
     },
     
 });

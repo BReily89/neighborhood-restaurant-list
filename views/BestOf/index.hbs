@@ -1,0 +1,15 @@
+<div>
+    <h1></h1>
+
+    <h3>Best Dishes and Drinks:</h3>
+    <div>
+        <a href="/BestOf/new">Add New Dish/Drink</a>
+    </div>
+    {{#each BestOf}}
+        <div>
+            {{this.BestOf}} - {{this.name}}
+            <a href="/BestOf/{{this._id}}">{{this.name}} BestOf</a>
+            <a href="/BestOf/{{this._id}}/BestOf">{{this.name}}'s Restaurants</a>
+        </div>
+    {{/each}}
+</div>
