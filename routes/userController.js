@@ -64,7 +64,19 @@ router.put('/:userId', (request, response) => {
 })
 
 //SHOW
-router.get('/:userId' , (request, ))
+router.get('/:userId' , (request, response) => {
+  const userId =  request.params.userId
+
+  UserModel.findById(userId)
+  .then((user) => {
+    response.render('user/show', {
+
+    })
+    .catch((error)=> {
+      console.log(error)
+    })
+  })
+})
 
 //DELETE
 
