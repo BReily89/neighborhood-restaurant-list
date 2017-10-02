@@ -14,7 +14,7 @@ router.get('/', (request, response) => {
     RestaurantModel.find({})
         .then((Restaurants) => {
 
-            response.render('Restaurants/index', {
+            response.render('restaurants/index', {
                 Restaurants: Restaurants
             })
         })
@@ -25,7 +25,7 @@ router.get('/', (request, response) => {
 
 //New Restaurant route
 router.get('/new', (request, response) => {
-            response.render('Restaurants/new')
+            response.render('restaurants/new')
         })
 
 //Create a route
@@ -37,7 +37,7 @@ router.post('/', (request, response) => {
 //CREATE/ save new restaurant using Restaurant Model
     RestaurantModel.create(newRestaurant)
         .then(() => {
-    response.redirect('/Restaurant')
+    response.redirect('/restaurant')
         })
         .catch((error) =>{
             console.log(error)
