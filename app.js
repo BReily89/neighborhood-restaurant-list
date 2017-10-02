@@ -28,7 +28,7 @@ var app = express();
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-  res.redirect('/companies')
+  res.redirect('/restaurants')
 })
 
 
