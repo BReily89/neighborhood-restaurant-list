@@ -7,7 +7,7 @@ const RestaurantModel = Schema.RestaurantModel;
 // Route to Index
 router.get('/', (request, response) => {
 
-    const RestaurantId =request.params.RestaurantId
+   // const RestaurantId =request.params.RestaurantId
 
 
     // Find all the restaurants in my database
@@ -35,7 +35,7 @@ router.post('/', (request, response) => {
     const newRestaurant = require.body
 
 //CREATE/ save new restaurant using Restaurant Model
-    restaurantModel.create(newRestaurant)
+    RestaurantModel.create(newRestaurant)
         .then(() => {
     response.redirect('/restaurant')
         })
@@ -44,6 +44,17 @@ router.post('/', (request, response) => {
         })
 
  })
+ // Create Route
+router.post('/', (req, res) => {
+    const newRestaurant = req.body
+    RestaurantModel.create(newRestaurant)
+      .then(() => {
+        res.redirect('/restaurant')
+      })
+      .catch((error) => {
+        res.render('error')
+      })
+  })
 
  // Edit Route
 router.get('/restaurantId/edit', (request, response) => {

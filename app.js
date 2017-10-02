@@ -7,9 +7,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-const methodOverride = require('method-override')
-
-var users = require('./routes/users');
+const methodOverride = require('method-override');
+var app = express();
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
@@ -23,13 +22,11 @@ db.once('open', () => {
 })
 
 
-var app = express();
-
 app.use(methodOverride('_method'))
 
-app.get('/', (req, res) => {
-  res.redirect('/restaurants')
-})
+/* app.get('/', (req, res) => {
+  res.redirect('/users')
+}) */
 
 
 // view engine setup
@@ -45,11 +42,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var indexController = require('./routes/indexController.js');
+var indexController = require('./routes/indexController');
 app.use('/', indexController);
 
-const RestaurantController = require('./routes/restaurantController.js');
-app.use('/restaurants', RestaurantController)
+const restaurantController = require('./routes/restaurantController');
+app.use('/restaurants', restaurantController);
+
+var userController = require('./routes/userController')
+app.use('/users', userController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

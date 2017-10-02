@@ -3,11 +3,11 @@
 
     <h3>Restaurant:</h3>
     <div>
-        <a href="/Restaurants/new">Add New Restaurant</a>
+       {{!--  <a href="/Restaurants/new">Add New Restaurant</a> --}}
     </div>
     {{#each Restaurants}}
         <div>
-            {{this.name}} - {{this.BestOF}}
+            {{this.name}} - {{this.neighborhood}}
             <a href="/Restaurants/{{this._id}}">{{this.name}} BestOf</a>
             <a href="/Restaurants/{{this._id}}/BestOf">{{this.name}}'s Map</a>
         </div>

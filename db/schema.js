@@ -9,11 +9,15 @@ const RestaurantSchema = new Schema({
     name: {
         type: String,
         required: true,
-        food: String,//link to restaurant website
-        dress: String,
-        neighborhood: String,
+    },
+    dress: {
+        type: String,
     },
     
+    neighborhood: {
+        type: String,
+    },
+
 });
 
 const BestOfSchema = new Schema({
@@ -27,11 +31,24 @@ const BestOfSchema = new Schema({
         type: Number,
     }
 })
+
+const UserSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+}
+
+})
+const UserModel = mongoose.model('User', UserSchema)
 const RestaurantModel = mongoose.model('Restaurant', RestaurantSchema)
 const BestOfModel = mongoose.model('BestOf', BestOfSchema)
 module.exports = {
     RestaurantModel: RestaurantModel,    
     BestOfModel: BestOfModel,
+    UserModel: UserModel,
     }
 
 
