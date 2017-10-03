@@ -28,7 +28,7 @@ router.get("/:restaurantId", (request, response) => {
 
     RestaurantModel.findById(restaurantId)
         .then((restaurant) =>{
-            response.render("restaurants/show", {
+            response.render("Restaurants/show", {
                 restaurant: restaurant
             })
         })
