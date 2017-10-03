@@ -50,8 +50,8 @@ app.use('/restaurants', restaurantController);
 var userController = require('./routes/userController')
 app.use('/users', userController);
 
-const bestOfController = require('./routes/bestOfController')
-app.use('/bestOf', bestOfController);
+// const bestOfController = require('./routes/bestOfController')
+// app.use('/bestOf', bestOfController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
