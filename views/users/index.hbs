@@ -3,6 +3,10 @@
 <div>{{#each users}}
 {{this.name}}
 {{this.email}}
+ <div>
+        <a href="/users/{{this._id}}/delete">Delete</a>
+    </div>
+<input type='submit' value='delete user' onclick="window.location=/users"/>
 {{/each}}</div>
 {{!-- link new users/new --}}
 <input type ='submit' value='restaurant index' onclick="window.location='/restaurants';"/>

@@ -31,13 +31,13 @@ UserModel.remove({}, function (err) {
 RestaurantModel.remove({}, function (err) {
     console.log(err);
 })
-const Venkmans = new RestaurantModel({ name: 'Venkmans', dress :'casual', neighborhood:''})
-const StapleHouse = new RestaurantModel({ name: 'StapleHouse', dress: 'upscale', neighborhood:''})
-const MfSushi = new RestaurantModel({ name: 'MfSushi', dress: 'casual', neighborhood:''})
+const Venkmans = new RestaurantModel({ name: 'Venkmans', dress :'casual', neighborhood:'Inman Park'})
+const StapleHouse = new RestaurantModel({ name: 'StapleHouse', dress: 'upscale', neighborhood:'Old Fourth Ward'})
+const MfSushi = new RestaurantModel({ name: 'MfSushi', dress: 'casual', neighborhood:'Inman Park'})
 
-const bestOfVenkmans = new BestOfModel({ dishName:'Burrata', price:'', drink:'Beer slushie shandy',price:''})
-const bestOfStapleHouse = new BestOfModel({dishName:'Chicken Liver Tart',price:'',  drink:'Ivy League', price:''})
-const bestOfMfSushi = new BestOfModel({dishName:'Avocado Balls',price:'', drink:'MF Manhattan', price:'' })
+const bestOfVenkmans = new BestOfModel({ dishName:'Burrata', price:'$9', drink:'Beer slushie shandy',price:'$6'})
+const bestOfStapleHouse = new BestOfModel({dishName:'Chicken Liver Tart',price:'$14',  drink:'Ivy League', price:'$11'})
+const bestOfMfSushi = new BestOfModel({dishName:'Avocado Balls',price:'$9', drink:'MF Manhattan', price:'$10' })
 
 //assigning best of to restaurant
 const Restaurant =[Venkmans, StapleHouse, MfSushi]

@@ -20,7 +20,7 @@ const RestaurantSchema = new Schema({
 
 });
 
-const BestOfSchema = new Schema({
+const bestOfSchema = new Schema({
     name: {
         type: String,
         type: String,
@@ -44,10 +44,10 @@ const UserSchema = new Schema({
 })
 const UserModel = mongoose.model('User', UserSchema)
 const RestaurantModel = mongoose.model('Restaurant', RestaurantSchema)
-const BestOfModel = mongoose.model('BestOf', BestOfSchema)
+const bestOfModel = mongoose.model('bestOf', bestOfSchema)
 module.exports = {
     RestaurantModel: RestaurantModel,    
-    BestOfModel: BestOfModel,
+    bestOfModel: bestOfModel,
     UserModel: UserModel,
     }
 

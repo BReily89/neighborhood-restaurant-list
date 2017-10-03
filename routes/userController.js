@@ -45,7 +45,7 @@ router.get('/:userId/edit',(request, response) => {
 
   Userodel.findById(userId)
   .then((user) => {
-    response.render('user/edit', {
+    response.render('user/index', {
       user: user
     })
   })
@@ -86,7 +86,7 @@ router.get('/:userId' , (request, response) => {
 router.get('/:userId/delete', (request, response) => {
   const userId = request.params.userId
 
-  userModel.findByIdAndRemove(userId)
+  UserModel.findByIdAndRemove(userId)
   .then(() => {
     response.redirect('/users')
   })

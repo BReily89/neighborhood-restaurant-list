@@ -2,21 +2,19 @@ const express = require('express')
 const router = express.Router({ mergeParams: true })
 
 const Schema = require("../db/schema.js");
-const RestaurantModel = Schema.RestaurantModel;
+const bestOfModel = Schema.bestOfModel
 // INDEX route
 router.get('/', (request, response) => {
-    const restaurantId = request.params.restaurantId
-//using model to find by Id
 
-    RestaurantModel.findById(restaurantId)
-        .then((restaurant) => {
-            response.render('BestOf/index', {
-                restaurant: restaurant
+    bestOfModel.find({})
+        .then((bestOf) => {
+            response.render('bestOf/index', {
+                bestOf: bestOf
             })
         })
     .catch((error) => {
         console.log(error)
-    })
+    })  
 })
 //NEW
 router.get('/new', (request, response)=> {
