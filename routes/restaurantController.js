@@ -14,7 +14,7 @@ router.get('/', (request, response) => {
     RestaurantModel.find({})
         .then((Restaurants) => {
 
-            response.render('restaurants/index', {
+            response.render('Restaurants/index', {
                 Restaurants: Restaurants
             })
         })
