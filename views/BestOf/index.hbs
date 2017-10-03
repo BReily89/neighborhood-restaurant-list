@@ -4,7 +4,15 @@
     <div>
         <a href="/restaurants/{{restaurant._id}}/bestOf/index">Whats your favorite dish/drink</a>
     </div>
-
+        <label for="dish">Dish</label>
+    <input type="text" name="dish" value="{{name.dish}}">
+   <label for="dish_price">Dish Price</label>
+    <input type="number" name="dish_price" value="{{name.dish_price}}">
+    <label for="drink">Drink</label>
+    <input type="text" name="email" value="{{name.drink}}">
+    <label for="drink_price">Drink Price</label>
+    <input type="number" name="email" value="{{name.drink_price}}">
+    <input type="submit" value="Create">
     <div>
         <a href="/restaurants">Back to Restaurants</a>
     </div>

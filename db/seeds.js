@@ -16,7 +16,8 @@ var Schema = require('./schema.js');
 var UserModel = Schema.UserModel;
 
 var RestaurantModel = Schema.RestaurantModel;
-var BestOfModel = Schema.BestOfModel
+var bestOfModel = Schema.bestOfModel
+
 
 //RestaurantModel.remove({}, function (err) {
  //   console.log(err);
@@ -30,18 +31,17 @@ UserModel.remove({}, function (err) {
 RestaurantModel.remove({}, function (err) {
     console.log(err);
 })
-const JohnDoe = new UserModel({name:'JohnDoe', email:'@email'})
 const Venkmans = new RestaurantModel({ name: 'Venkmans', dress :'casual', neighborhood:''})
 const StapleHouse = new RestaurantModel({ name: 'StapleHouse', dress: 'upscale', neighborhood:''})
 const MfSushi = new RestaurantModel({ name: 'MfSushi', dress: 'casual', neighborhood:''})
 
-const BestOfVenkmans = new BestOfModel({ dishName:'Burrata', price:'', drink:'Beer slushie shandy',price:''})
-const BestOfStapleHouse = new BestOfModel({dishName:'Chicken Liver Tart',price:'',  drink:'Ivy League', price:''})
-const BestOfMfSushi = new BestOfModel({dishName:'Avocado Balls',price:'', drink:'MF Manhattan', price:'' })
+const bestOfVenkmans = new BestOfModel({ dishName:'Burrata', price:'', drink:'Beer slushie shandy',price:''})
+const bestOfStapleHouse = new BestOfModel({dishName:'Chicken Liver Tart',price:'',  drink:'Ivy League', price:''})
+const bestOfMfSushi = new BestOfModel({dishName:'Avocado Balls',price:'', drink:'MF Manhattan', price:'' })
 
 //assigning best of to restaurant
 const Restaurant =[Venkmans, StapleHouse, MfSushi]
-const BestOf = [BestOfVenkmans, BestOfStapleHouse, BestOfMfSushi]
+const bestOf = [BestOfVenkmans, BestOfStapleHouse, BestOfMfSushi]
 //existing users
 
 

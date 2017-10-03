@@ -41,7 +41,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 var indexController = require('./routes/indexController');
 app.use('/', indexController);
 
@@ -50,6 +49,9 @@ app.use('/restaurants', restaurantController);
 
 var userController = require('./routes/userController')
 app.use('/users', userController);
+
+const bestOfController = require('./routes/bestOfController')
+app.use('/bestOf', bestOfController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

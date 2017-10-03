@@ -2,13 +2,14 @@ const express = require('express')
 const router = express.Router({ mergeParams: true })
 
 const Schema = require("../db/schema.js");
-const RestaurantyModel = Schema.RestaurantModel;
+const RestaurantModel = Schema.RestaurantModel;
 // INDEX route
 router.get('/', (request, response) => {
     const restaurantId = request.params.restaurantId
 //using model to find by Id
-    RestaurantModel.findebyID(RestaurantId)
-        .then((comapny) => {
+
+    RestaurantModel.findById(restaurantId)
+        .then((restaurant) => {
             response.render('BestOf/index', {
                 restaurant: restaurant
             })
@@ -22,8 +23,9 @@ router.get('/new', (request, response)=> {
 
     const restaurantId = request.params.restaurantId
 
-    response.render('BestOf/new', {
+    response.render('bestOf/new', {
         restaurantId: restaurantId
+        
     })
 })
 //CREATE 
@@ -47,7 +49,7 @@ router.get('/bestOf/edit', (request, response) => {
     const restaurantId = request.params.restaurantId
     const bestOfId = request.params.bestOfId
 
-    RestaurantyModel.findById(restaurantId)
+    RestaurantModel.findById(restaurantId)
     .then((restaurant) =>{
 
         const bestOf = restaurant.bestOf.id(bestOfId)
@@ -57,10 +59,10 @@ router.get('/bestOf/edit', (request, response) => {
         bestOf: bestOf,
         restaurantId: restaurantId
     })
-})
-    .catch((error) => {
+.catch((error) => {
         console.log(error)
     })
+})
 
     //UPDATE
 
@@ -72,21 +74,21 @@ router.get('/bestOf/edit', (request, response) => {
     bestOf.price = updatedBestof.price
     return restaurant.save()
     .then(() => {
-        response.redirect(`restaurant/${restarantId}/bestOf/${bestOfId}`)
+        response.redirect(`restaurant/${restaurantId}/bestOf/${bestOfId}`)
         })
     })
     //SHOW
-    router.get('/:BestOfId', (request, response) => {
-        const restarantId = request.params.response
+    router.get('/:bestOfId', (request, response) => {
+        const restaurantId = request.params.response
         const bestOfId = request.params.bestOfId
-        RestaurantyModel.findebyID(restarantId
+        RestaurantModel.findById(restaurantId)
         .then((company) => {
             const bestOf = restaurant.bestOf.id(bestOf)
             response.render('bestof/show', {
                 bestOf:bestOf,
-                restarantId: restarantId
+                restaurantId: restaurantId
             })
-        }))
+        })
         .catch((error) => {
             console.log(error)
         })
@@ -95,10 +97,9 @@ router.get('/bestOf/edit', (request, response) => {
     //DELETE
 
     router.get('/:bestOf/delete', (request, response) =>{
-        const bestOf = request.param.restarantId
-        const bestOf = request.params.bestOfId
+        const bestOf = request.param.restaurantId
 
-        RestaurantyModel.findById(restarantId)
+        RestaurantyModel.findById(restaurantId)
         .then((restaurant) => {
             const bestOf = restaurant.bestOf.id(bestOfId).remove()
             return restaurant.save()
@@ -107,4 +108,4 @@ router.get('/bestOf/edit', (request, response) => {
             response.redirect(`/restaurants/${restaurantId}/bestOF`)
         })
     })
-    module.exports = router
+    module.exports = router;
