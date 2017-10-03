@@ -1,18 +1,18 @@
 <div>
-    <h1>{{Restaurant.name}}'s Dish/Drink</h1>
+    <h1>{{restaurants.name}}'s BestOf</h1>
 
     <div>
-        <a href="/restaurant/{{restaurant._id}}/restaurant/new">Create a new dish/drink</a>
+        <a href="/restaurants/{{restaurant._id}}/bestOf/new">Whats your favorite dish/drink</a>
     </div>
 
     <div>
-        <a href="/restaurant">Back to restaurant List/a>
+        <a href="/restaurants">Back to Restaurants</a>
     </div>
     
-    {{#each restaurant.BestOf}}
+    {{#each restaurant.bestOf}}
         <div>
             {{this.name}} - {{this.price}}
-            <a href="/restaurant/{{../restaurant._id}}/restaurant/{{this._id}}">View</a>
+            <a href="/restaurants/{{../restaurant._id}}/bestOf/{{this._id}}">View</a>
         </div>
     {{/each}}
 </div>
