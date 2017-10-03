@@ -4,33 +4,43 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const BestOfSchema = new Schema({
+    dishName: {
+        type: String,
+        required: true
+    },
+    dishPrice: {
+        type: Number,
+        required: true
+    },
+    drinkName: {
+        type: String,
+        required: true
+    },
+    drinkPrice: {
+        type: Number,
+        required: true
+    }
+})
 
 const RestaurantSchema = new Schema({
     name: {
         type: String,
         required: true,
     },
-    dress: {
+    attire: {
         type: String,
+        required: true
     },
     
     neighborhood: {
         type: String,
-    },
-
-});
-
-const bestOfSchema = new Schema({
-    name: {
-        type: String,
-        type: String,
         required: true,
     },
-    price: {
-        type: Number,
-        type: Number,
-    }
-})
+    bestOfs: BestOfSchema
+});
+
+
 
 const UserSchema = new Schema({
     name: {
@@ -44,10 +54,10 @@ const UserSchema = new Schema({
 })
 const UserModel = mongoose.model('User', UserSchema)
 const RestaurantModel = mongoose.model('Restaurant', RestaurantSchema)
-const bestOfModel = mongoose.model('bestOf', bestOfSchema)
+const BestOfModel = mongoose.model('bestOf', BestOfSchema)
 module.exports = {
     RestaurantModel: RestaurantModel,    
-    bestOfModel: bestOfModel,
+    BestOfModel: BestOfModel,
     UserModel: UserModel,
     }
 

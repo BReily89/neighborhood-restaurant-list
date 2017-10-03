@@ -23,6 +23,20 @@ router.get('/', (request, response) => {
         })
 })
 
+router.get("/:restaurantId", (request, response) => {
+    const restaurantId = request.params.restaurantId
+
+    RestaurantModel.findById(restaurantId)
+        .then((restaurant) =>{
+            response.render("restaurants/show", {
+                restaurant: restaurant
+            })
+        })
+        .catch((error) => {
+            console.log(err)
+        })
+
+})
 //New Restaurant route
 router.get('/new', (request, response) => {
             response.render('restaurants/new')
@@ -57,11 +71,11 @@ router.post('/', (req, res) => {
   })
 
  // Edit Route
-router.get('/restaurantId/edit', (request, response) => {
+router.get('/:restaurantId/edit', (request, response) => {
 
-        const restaurantId = request.params.RestaurantId
+        const restaurantId = request.params.restaurantId
 
-        restaurantModel.findById(RestaurantId)
+        RestaurantModel.findById(restaurantId)
         .then((restaurant) => {
             response.render('restaurant/edit', {
                 restaurant: restaurant

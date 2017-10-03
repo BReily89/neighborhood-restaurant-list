@@ -1,7 +1,12 @@
 <div>
-    <h1>{{Restaurant.name}}</h1>
-    <div>Neighborhood: {{Restaurant.neighborhood}}</div>
+    <h1>{{restaurant.name}}</h1>
+    <div>Neighborhood: {{restaurant.neighborhood}}</div>
 
+<h2>Best Ofs</h2>
+    <ul>
+       <li>{{restaurant.bestOfs.dishName}}-${{restaurant.bestOfs.dishPrice}}</li>
+      <li>{{restaurant.bestOfs.drinkName}}-${{restaurant.bestOfs.drinkPrice}}</li>
+    </ul>
     <div>
         <a href="/Restaurants">Back to 
         Restaurants</a>
@@ -12,4 +17,8 @@
     <div>
         <a href="/Restaurants/{{restaurant._id}}/delete">Delete</a>
     </div>
+    
+    
+    
+
 </div>
