@@ -104,6 +104,7 @@ router.get('/bestOf/edit', (request, response) => {
             return restaurant.save()
         })
         .then(() => {
-            response.redirect(`/restaurants/$`)
+            response.redirect(`/restaurants/${restaurantId}/bestOF`)
         })
     })
+    module.exports = router
