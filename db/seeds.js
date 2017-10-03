@@ -23,7 +23,9 @@ var BestOfModel = Schema.BestOfModel
 //});
 
 // Restaurants and Their Dishes
-
+UserModel.remove({}, function (err) {
+    console.log(err)
+})
 
 RestaurantModel.remove({}, function (err) {
     console.log(err);
@@ -40,7 +42,6 @@ const BestOfMfSushi = new BestOfModel({dishName:'Avocado Balls',price:'', drink:
 //assigning best of to restaurant
 const Restaurant =[Venkmans, StapleHouse, MfSushi]
 const BestOf = [BestOfVenkmans, BestOfStapleHouse, BestOfMfSushi]
-const users = [JohnDoe]
 //existing users
 
 
