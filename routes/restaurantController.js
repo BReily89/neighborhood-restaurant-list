@@ -71,7 +71,7 @@ router.post('/', (req, res) => {
   })
 
  // Edit Route
-router.get('/:restaurantId/edit', (request, response) => {
+router.get('/:RestaurantId/edit', (request, response) => {
 
         const restaurantId = request.params.restaurantId
 

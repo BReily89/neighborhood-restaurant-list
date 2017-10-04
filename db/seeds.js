@@ -36,9 +36,9 @@ UserModel.remove({}, function (err) {
 RestaurantModel.remove({}, function (err) {
     console.log(err);
 })
-const Venkmans = new RestaurantModel({ name: 'Venkmans', attire: 'casual', neighborhood: 'Inman Park', bestOfs: bestOfVenkmans })
-const StapleHouse = new RestaurantModel({ name: 'StapleHouse', attire: 'upscale', neighborhood: 'Old Fourth Ward', bestOfs: bestOfStapleHouse })
-const MfSushi = new RestaurantModel({ name: 'MfSushi', attire: 'casual', neighborhood: 'Inman Park', bestOfs: bestOfMfSushi })
+const Venkmans = new RestaurantModel({ name: 'Venkmans', attire: 'casual', neighborhood: 'Inman Park',image:'https://imgur.com/y47rHqh', bestOfs: bestOfVenkmans })
+const StapleHouse = new RestaurantModel({ name: 'StapleHouse', attire: 'upscale', neighborhood: 'Old Fourth Ward', image:'https://imgur.com/y47rHqh', bestOfs: bestOfStapleHouse })
+const MfSushi = new RestaurantModel({ name: 'MfSushi', attire: 'casual', neighborhood: 'Inman Park',image:'https://imgur.com/y47rHqh', bestOfs: bestOfMfSushi })
 
 
 

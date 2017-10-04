@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
  router.get('/', (request, response) => {
     UserModel.find({})
     .then((users) => {
-      response.render('users/index', {
+      response.render('users/new', {
       users: users
     })
   })
